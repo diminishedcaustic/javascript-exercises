@@ -1,18 +1,14 @@
-const sumAll = function(num_one,num_two) {
+const sumAll = function(min,max) {
     let sum = 0;
-    let min;
-    let max;
 
-    if((num_one < 0 || num_two < 0)||(num_one % 1 !== 0 || num_one % 1 !== 0)||(typeof num_one != 'number' || typeof num_two != 'number')){
+    if((min < 0 || max < 0)||!Number.isInteger(min)||!Number.isInteger(max)){
         return 'ERROR';
     }
 
-    if(num_one < num_two){
-        min = num_one;
-        max = num_two;
-    }else{
-        min = num_two;
-        max = num_one;
+    if( max < min){
+        let temp = min;
+        min = max;
+        max = temp;
     }
 
     for(let i = min; i <= max; i++){
